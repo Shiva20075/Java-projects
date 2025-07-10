@@ -4,9 +4,9 @@ import java.util.Set;
 
 public class ShoppingCart {
 
-    HashMap<String, Integer>  cart;
-    Order order ;
-    Inventory inventory;
+    private HashMap<String, Integer>  cart;
+    private Order order ;
+    public Inventory inventory;
 
     public ShoppingCart(Inventory inventory) {
         cart = new HashMap<>();

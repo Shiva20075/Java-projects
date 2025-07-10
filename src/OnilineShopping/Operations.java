@@ -1,9 +1,5 @@
 package OnilineShopping;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.UUID;
-import java.util.List;
-
 
 public class Operations {
     Scanner s;
@@ -24,7 +20,7 @@ public class Operations {
 
             System.out.println("1.ADMIN");
             System.out.println("2.CUSTOMER");
-            System.out.println("3.DISPLEY ORDERS");
+            System.out.println("3.DISPLAY ORDERS");
             System.out.println("4.EXIT");
             System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
@@ -33,7 +29,7 @@ public class Operations {
             if (userInput == 1){
                 adminOperations();
 
-            }else if(userInput == 2){
+            }else if (userInput == 2){
 
                 customerShopping();
                 customerOperations();
@@ -51,7 +47,7 @@ public class Operations {
            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
            System.out.println("1.ADD PRODUCT   ");
            System.out.println("2.REMOVE PRODUCT");
-           System.out.println("3.DISPLEY INVENTORY");
+           System.out.println("3.DISPLAY INVENTORY");
            System.out.println("4.SEARCH PRODUCT");
            System.out.println("5.EXIT");
            System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -68,7 +64,7 @@ public class Operations {
                System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
                if (result) {
-                   System.out.println("Product Removed Succesfully");
+                   System.out.println("Product Removed Successfully");
                }
                else {
                    System.out.println("Please Enter Valid Product Id");
@@ -82,8 +78,8 @@ public class Operations {
            }
            else if (userInput == 4){
                inventory.searchProduct();
-
-           }else if(userInput == 5) {
+           }
+           else if (userInput == 5) {
                break;
            }
        }
@@ -108,7 +104,7 @@ public class Operations {
 
         Product product = new Product(name,descpriction,price,Stock);
 
-        System.out.println("PRODUCT CREATED SUCESSFULLY");
+        System.out.println("PRODUCT CREATED SUCCESSFULLY");
         inventory.addProduct(product);
 
         }

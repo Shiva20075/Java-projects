@@ -1,15 +1,19 @@
 package OnilineShopping;
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class Order {
 
-    String orderId  ;
-    Set <String> productIds  = new HashSet<>();
-    Map<String, Integer> cartItems = new HashMap<>();
-    Map<String, Product> inventory;
+    private String orderId  ;
+    private Set <String> productIds  = new HashSet<>();
+    private Map<String, Integer> cartItems = new HashMap<>();
+    private Map<String, Product> inventory;
 
-    long price;
-    int sizeOfCart;
+    private long price;
+    private int sizeOfCart;
 
     public Order(ShoppingCart cart, Inventory inventory) {
         this.productIds = cart.getCart().keySet();
@@ -24,7 +28,7 @@ public class Order {
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
         long totalOrderAmount = 0;
-        System.out.println("Cart-Iimes " + cartItems.toString());
+
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
         for (String productId : productIds) {
