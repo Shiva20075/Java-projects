@@ -5,6 +5,7 @@ import java.util.Set;
 public class ShoppingCart {
 
     HashMap<String, Integer>  cart;
+    Order order ;
     Inventory inventory;
 
     public ShoppingCart(Inventory inventory) {
@@ -12,26 +13,33 @@ public class ShoppingCart {
         this.inventory = inventory;
     }
 
+    public HashMap<String, Integer> getCart() {
+        return this.cart;
+    }
 
     public void addProduct (String productId){
         if (cart.containsKey(productId)) {
             int countOfProducts = cart.get(productId);
             cart.put(productId, countOfProducts + 1);
+
         }
         else {
             cart.put(productId, 1);
+
         }
     }
 
     public void removeProduct (String productId){
-
+        Set<String> productKeys = cart.keySet();
          cart.remove(productId);
-        System.out.println("REMOVED PRODUCT = " + inventory.products.get(productId));
+        System.out.println("REMOVED PRODUCT = " + inventory.products.get(productId) + "QUANTITY = " + (cart.get(productKeys) - 1));
     }
 
-    public void  sizeOfCart(){
+    public int sizeOfCart(){
 
-        System.out.println("CART SIZE = " + cart.size());
+        int sizeOfCart = cart.size();
+        System.out.println("CART SIZE = " + sizeOfCart);
+        return sizeOfCart;
 
     }
 
@@ -54,10 +62,8 @@ public class ShoppingCart {
 
         Set<String> productKeys = cart.keySet();
         for (String productKey : productKeys ) {
-            System.out.println(productKey);
             Product p = inventory.products.get(productKey);
             System.out.println("PRODUCTS IN CART = " + p.getProductName() + " QUANTITY = " + cart.get(productKey));
         }
     }
-
 }

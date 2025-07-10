@@ -12,10 +12,14 @@ public class Inventory {
         products.put(product.getProductId(), product);
     }
 
+    public HashMap<String,Product> getProducts() {
+        return this.products;
+    }
+
     public boolean removeProduct(String productId) {
         if (products.containsKey(productId)) {
             Product product = products.get(productId);
-            System.out.println("REMOVED PRODUCT = " + product.getProductName());
+            System.out.println("REMOVED PRODUCT = " + product.getProductName() );
             products.remove(productId);
             return true;
         }
@@ -25,7 +29,8 @@ public class Inventory {
     public void productInfo() {
         Set<String> productKeys = products.keySet();
         for (String productKey : productKeys ){
-            System.out.println("PRODUCTS IN INVENTORY = " + products.get(productKey));
+            Product p = products.get(productKey);
+            System.out.println("PRODUCTS IN INVENTORY = " + products.get(productKey) + "PRODUCT STOCK = " + p.getStock());
         }
     }
 

@@ -1,10 +1,15 @@
 package OnilineShopping;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
+import java.util.List;
+
 
 public class Operations {
     Scanner s;
     Inventory inventory;
     ShoppingCart cart;
+    Order order ;
 
     public Operations() {
         s = new Scanner(System.in);
@@ -78,7 +83,7 @@ public class Operations {
            else if (userInput == 4){
                inventory.searchProduct();
 
-           }else{
+           }else if(userInput == 5) {
                break;
            }
        }
@@ -105,10 +110,9 @@ public class Operations {
 
         System.out.println("PRODUCT CREATED SUCESSFULLY");
         inventory.addProduct(product);
-        System.out.println("ADDED PRODUCT = " + product.getProductId());
 
-    }
-
+        }
+    
     public void customerShopping() {
 
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
@@ -123,9 +127,10 @@ public class Operations {
     public void customerOperations() {
         while (true) {
             System.out.println("1.ADD PRODUCT TO CART");
-            System.out.println("2.REMOVE PRODUCT FROM CART =");
-            System.out.println("3.CHECK PRODUCT IN YOUR CART = ");
-            System.out.println("4.TOTAL PRODUCTS IN YOUR CART =");
+            System.out.println("2.REMOVE PRODUCT FROM CART ");
+            System.out.println("3.CHECK PRODUCT IN YOUR CART ");
+            System.out.println("4.TOTAL PRODUCTS IN YOUR CART ");
+            System.out.println("5. PLACE AN ORDER FOR ITEMS IN YOUR CART");
             System.out.println("5.EXIT");
 
             int userInput = s.nextInt();
@@ -157,12 +162,18 @@ public class Operations {
                 cart.sizeOfCart();
                 System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
+            } else if( userInput == 5){
+                // cart
+                // inventory
+              order = new Order(cart, inventory);
+              order.placeOrder();
+
             }else{
                 break;
             }
         }
-
     }
+
         public static void main(String[] args) {
         Operations operation = new Operations();
         operation.shoppingOperations();
